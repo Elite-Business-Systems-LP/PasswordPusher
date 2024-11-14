@@ -3,9 +3,8 @@ name: Docker Container Builds
 
 on:
   push:
-    tags:
-      - "stable"
-      - "v*.*.*"
+    branches: [ master ]
+
 
   workflow_dispatch:
     inputs:
@@ -46,10 +45,11 @@ jobs:
             type=semver,pattern={{major}}
 
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: azure/docker-login@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -60,8 +60,8 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/pwpush:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
+          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache
+          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
   public-gateway-container:
     needs: pwpush-container
@@ -80,7 +80,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/pwpush-public-gateway
+          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway
           tags: |
             type=match,pattern=stable
             type=schedule,pattern=nightly
@@ -89,10 +89,11 @@ jobs:
             type=semver,pattern={{major}}
 
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: azure/docker-login@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -103,8 +104,8 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/pwpush-public-gateway:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/pwpush-public-gateway:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
+          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache
+          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
   
   worker-container:
     needs: pwpush-container
@@ -132,10 +133,11 @@ jobs:
             type=semver,pattern={{major}}
 
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: azure/docker-login@v1
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -146,6 +148,6 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/pwpush-worker:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/pwpush-worker:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
+          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache
+          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
