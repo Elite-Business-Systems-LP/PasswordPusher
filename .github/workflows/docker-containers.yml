@@ -37,7 +37,6 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/pwpush
-          tags: latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -54,7 +53,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/pwpush:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
