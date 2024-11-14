@@ -36,7 +36,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.REGISTRY_USERNAME }}/pwpush
+          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush
+          tags: pwpush:latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -113,7 +114,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.REGISTRY_USERNAME }}/pwpush-worker
+          images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker
           tags: pwpush-worker:latest
 
       - name: Login to DockerHub
