@@ -93,7 +93,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: public-gateway:latest
+          tags:  ${{ secrets.REGISTRY_LOGIN_SERVER }}/public-gateway:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
   
@@ -132,7 +132,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: pwpush-worker:latest
+          tags:  ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
