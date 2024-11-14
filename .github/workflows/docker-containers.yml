@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and push Docker image
-        uses: azure/build-push-action@v6
+        uses: docker/build-push-action@v6
         with:
           file: ./containers/docker/Dockerfile
           platforms: linux/amd64
