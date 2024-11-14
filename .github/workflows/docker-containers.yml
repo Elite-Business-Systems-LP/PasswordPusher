@@ -54,7 +54,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: pwpush:latest
+          tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
