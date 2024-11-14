@@ -37,12 +37,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/pwpush
-          tags: |
-            type=match,pattern=stable
-            type=schedule,pattern=nightly
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/pwpush:latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -81,12 +76,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway
-          tags: |
-            type=match,pattern=stable
-            type=schedule,pattern=nightly
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/pwpush-public-gateway:latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -125,12 +115,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/pwpush-worker
-          tags: |
-            type=match,pattern=stable
-            type=schedule,pattern=nightly
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-            type=semver,pattern={{major}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/pwpush-worker:latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
