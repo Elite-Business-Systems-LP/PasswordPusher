@@ -36,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/pwpush
+          images: ${{ secrets.REGISTRY_USERNAME }}/pwpush
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -46,7 +46,7 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6
+        uses: azure/build-push-action@v6
         with:
           file: ./containers/docker/Dockerfile
           platforms: linux/amd64
@@ -113,7 +113,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/pwpush-worker
+          images: ${{ secrets.REGISTRY_USERNAME }}/pwpush-worker
           tags: pwpush-worker:latest
 
       - name: Login to DockerHub
