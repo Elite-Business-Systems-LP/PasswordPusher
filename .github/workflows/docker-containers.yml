@@ -60,8 +60,8 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache
-          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
+#          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache
+#          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
   public-gateway-container:
     needs: pwpush-container
@@ -104,8 +104,8 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache
-          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
+#          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache
+#          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
   
   worker-container:
     needs: pwpush-container
@@ -148,6 +148,6 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: ${{ steps.meta.outputs.tags }}
-          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache
-          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
+#          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache
+#          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
