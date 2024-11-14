@@ -53,7 +53,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ secrets.DOCKER_USERNAME }}/pwpush:latest
+          tags: pwpush:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
@@ -75,7 +75,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway
-          tags: latest
+          tags: pwpush-public-gateway:latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -92,7 +92,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: latest
+          tags: public-gateway:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-public-gateway:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
   
@@ -114,7 +114,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/pwpush-worker
-          tags: ${{ secrets.DOCKER_USERNAME }}/pwpush-worker:latest
+          tags: pwpush-worker:latest
 
       - name: Login to DockerHub
         uses: azure/docker-login@v1
@@ -131,7 +131,7 @@ jobs:
           provenance: false
           push: true
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: pwpush-worker:latest
 #          cache-from: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache
 #          cache-to: type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/pwpush-worker:buildcache,mode=max,ignore-error=${{env.DOCKER_PUSH == 'false'}}
 
