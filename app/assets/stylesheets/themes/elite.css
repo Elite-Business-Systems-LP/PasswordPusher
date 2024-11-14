@@ -37,7 +37,7 @@
   --bs-gray-700: #444;
   --bs-gray-800: #303030;
   --bs-gray-900: #222;
-  --bs-primary: #375a7f;
+  --bs-primary: #DC0814;
   --bs-secondary: #444;
   --bs-success: #00bc8c;
   --bs-info: #3498db;
@@ -2430,8 +2430,8 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(229, 27, 36, 0.25);
 }
 .form-check-input:checked {
-  background-color: #375a7f;
-  border-color: #375a7f;
+  background-color: #DC0814;
+  border-color: #DC0814;
 }
 .form-check-input:checked[type=checkbox] {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
@@ -2440,8 +2440,8 @@ textarea.form-control-lg {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #375a7f;
-  border-color: #375a7f;
+  background-color: #DC0814;
+  border-color: #DC0814;
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -2534,7 +2534,7 @@ textarea.form-control-lg {
   margin-top: -0.25rem;
   -webkit-appearance: none;
   appearance: none;
-  background-color: #375a7f;
+  background-color: #DC0814;
   border: 0;
   border-radius: 1rem;
   -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -2563,7 +2563,7 @@ textarea.form-control-lg {
   height: 1rem;
   -moz-appearance: none;
   appearance: none;
-  background-color: #375a7f;
+  background-color: #DC0814;
   border: 0;
   border-radius: 1rem;
   -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3074,8 +3074,8 @@ textarea.form-control-lg {
 
 .btn-secondary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #444;
-  --bs-btn-border-color: #444;
+  --bs-btn-bg: #003660;
+  --bs-btn-border-color: #003660;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #3a3a3a;
   --bs-btn-hover-border-color: #363636;
@@ -3444,9 +3444,9 @@ textarea.form-control-lg {
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-dropdown-link-color: #fff;
   --bs-dropdown-link-hover-color: #fff;
-  --bs-dropdown-link-hover-bg: #375a7f;
+  --bs-dropdown-link-hover-bg: #DC0814;
   --bs-dropdown-link-active-color: #fff;
-  --bs-dropdown-link-active-bg: #375a7f;
+  --bs-dropdown-link-active-bg: #DC0814;
   --bs-dropdown-link-disabled-color: var(--bs-tertiary-color);
   --bs-dropdown-item-padding-x: 1rem;
   --bs-dropdown-item-padding-y: 0.25rem;
@@ -3712,7 +3712,7 @@ textarea.form-control-lg {
   --bs-dropdown-divider-bg: #444;
   --bs-dropdown-link-hover-bg: rgba(255, 255, 255, 0.15);
   --bs-dropdown-link-active-color: #fff;
-  --bs-dropdown-link-active-bg: #375a7f;
+  --bs-dropdown-link-active-bg: #DC0814;
   --bs-dropdown-link-disabled-color: #adb5bd;
   --bs-dropdown-header-color: #adb5bd;
 }
@@ -4967,7 +4967,7 @@ textarea.form-control-lg {
   --bs-progress-border-radius: var(--bs-border-radius);
   --bs-progress-box-shadow: var(--bs-box-shadow-inset);
   --bs-progress-bar-color: #fff;
-  --bs-progress-bar-bg: #375a7f;
+  --bs-progress-bar-bg: #DC0814;
   --bs-progress-bar-transition: width 0.6s ease;
   display: flex;
   height: var(--bs-progress-height);
@@ -5032,8 +5032,8 @@ textarea.form-control-lg {
   --bs-list-group-disabled-color: var(--bs-secondary-color);
   --bs-list-group-disabled-bg: #303030;
   --bs-list-group-active-color: #fff;
-  --bs-list-group-active-bg: #375a7f;
-  --bs-list-group-active-border-color: #375a7f;
+  --bs-list-group-active-bg: #DC0814;
+  --bs-list-group-active-border-color: #DC0814;
   display: flex;
   flex-direction: column;
   padding-left: 0;
