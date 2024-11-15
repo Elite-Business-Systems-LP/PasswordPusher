@@ -379,7 +379,7 @@ pre {
   margin-bottom: 1rem;
   overflow: auto;
   font-size: 0.875em;
-  color: inherit;
+  color: #000000;
 }
 pre code {
   font-size: inherit;
