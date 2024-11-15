@@ -3824,7 +3824,7 @@ textarea.form-control-lg {
   --bs-nav-link-color: var(--bs-link-color);
   --bs-nav-link-hover-color: var(--bs-link-hover-color);
   --bs-nav-link-disabled-color: #adb5bd;
-  display: flex;
+  display: none; /* was flex */
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 0;
